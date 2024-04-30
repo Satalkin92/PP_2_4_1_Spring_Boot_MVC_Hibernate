@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<hr>
+<table width="700" border="5">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last_Name</th>
+        <th>Age</th>
+        <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="msg:${users}">
+        <td th:text="${msg.id}"/>
+        <td th:text="${msg.name}"/>
+        <td th:text="${msg.lastName}"/>
+        <td th:text="${msg.age}"/>
+        <td>
+            <button>
+                <a th:href="@{/users/getUser(id=${msg.getId()})}">Update</a>
+            </button>
+            <button>
+            <a th:href="@{/users/delete(id=${msg.getId()})}">Delete</a>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button>
+    <a href="/new">New user</a>
+</button>
+</body>
+</html>
